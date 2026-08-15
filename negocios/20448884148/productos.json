@@ -1,0 +1,12 @@
+[
+  {
+    "nombre": "Silla de madera",
+    "precio": 45000,
+    "alicuotaIva": 21
+  },
+  {
+    "nombre": "Circuito de cobranzas",
+    "precio": 200000,
+    "alicuotaIva": 0
+  }
+]

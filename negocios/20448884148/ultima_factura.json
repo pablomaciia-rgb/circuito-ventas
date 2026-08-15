@@ -1,0 +1,10 @@
+{
+  "tipoComprobante": "C",
+  "ptoVta": 1,
+  "nroComprobante": 10,
+  "cae": "86330765894823",
+  "vencimientoCae": "20260825",
+  "total": 225000,
+  "neto": 225000,
+  "iva": 0
+}

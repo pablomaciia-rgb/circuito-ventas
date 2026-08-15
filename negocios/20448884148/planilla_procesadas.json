@@ -1,0 +1,121 @@
+{
+  "ids": [
+    "Cliente de prueba|Circuito de cobranzas|1",
+    "Cliente de prueba|Silla de madera|2",
+    "Cliente de prueba|Silla de madera|3",
+    "Cliente RI de prueba|Circuito de cobranzas|1",
+    "Cliente de prueba|Circuito de cobranzas|1|",
+    "Cliente de prueba|Silla de madera|2|",
+    "Cliente de prueba|Silla de madera|3|",
+    "Cliente RI de prueba|Circuito de cobranzas|1|",
+    "Cliente de prueba|Circuito de cobranzas|2|pablomaciia@gmail.com",
+    "Cliente de prueba|Circuito de cobranzas|2",
+    "Cliente de prueba|Silla de madera|5"
+  ],
+  "registro": [
+    {
+      "fecha": "2026-08-14T02:59:52.246Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "1",
+      "resultado": "facturado",
+      "cae": "86330757794789"
+    },
+    {
+      "fecha": "2026-08-15T15:28:05.317Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "2",
+      "resultado": "facturado",
+      "cae": "86330765366062",
+      "clientePendiente": false
+    },
+    {
+      "fecha": "2026-08-15T15:35:58.315Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "3",
+      "resultado": "error",
+      "detalle": "Consultando último comprobante autorizado (PtoVta 1, tipo 6)...\n✓ Último autorizado: 0. Este comprobante será el N° 1.\nArmando factura: 3 x \"Silla de madera\" — total $135000.00 (CUIT 20111111112 (monotributo))...\nSolicitando CAE a ARCA...\n✗ ARCA no autorizó el comprobante (Resultado: R). Observaciones: El campo Condicion IVA receptor no es valido para la clase de comprobante informado. Consular metodo FEParamGetCondicionIvaReceptor\n"
+    },
+    {
+      "fecha": "2026-08-15T15:45:49.631Z",
+      "cliente": "Cliente RI de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "1",
+      "resultado": "facturado",
+      "cae": "86330765398424",
+      "clientePendiente": false
+    },
+    {
+      "fecha": "2026-08-15T20:30:50.202Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "1",
+      "resultado": "facturado",
+      "cae": "86330765799127",
+      "clientePendiente": false,
+      "envioMail": "sin_email"
+    },
+    {
+      "fecha": "2026-08-15T20:30:51.002Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "2",
+      "resultado": "facturado",
+      "cae": "86330765799130",
+      "clientePendiente": false,
+      "envioMail": "sin_email"
+    },
+    {
+      "fecha": "2026-08-15T20:30:51.688Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "3",
+      "resultado": "facturado",
+      "cae": "86330765799169",
+      "clientePendiente": false,
+      "envioMail": "sin_email"
+    },
+    {
+      "fecha": "2026-08-15T20:30:52.896Z",
+      "cliente": "Cliente RI de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "1",
+      "resultado": "facturado",
+      "cae": "86330765799198",
+      "clientePendiente": false,
+      "envioMail": "sin_email"
+    },
+    {
+      "fecha": "2026-08-15T20:31:08.519Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "2",
+      "resultado": "facturado",
+      "cae": "86330765799216",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-15T22:04:28.556Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "2",
+      "resultado": "facturado",
+      "cae": "86330765894556",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-15T22:04:45.646Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "5",
+      "resultado": "facturado",
+      "cae": "86330765894823",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    }
+  ]
+}

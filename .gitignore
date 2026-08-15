@@ -1,0 +1,11 @@
+node_modules/
+
+# Credenciales y secretos — nunca deben subirse a un repositorio.
+credenciales-google-sheets.json
+negocios/*/certs/
+negocios/*/token_*.json
+.env
+.env.*
+
+# Artefactos temporales de entrega (ya aplicados al proyecto, no son código fuente).
+*.zip

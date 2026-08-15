@@ -1,0 +1,27 @@
+[
+  {
+    "nombre": "Cliente de prueba",
+    "clienteCuit": "20111111112",
+    "condicionIva": "monotributo",
+    "estado": "completo",
+    "fechaAlta": "2026-08-15T15:19:23.464Z",
+    "fechaCompletado": "2026-08-15T15:19:56.064Z",
+    "email": "pablomaciia@gmail.com"
+  },
+  {
+    "nombre": "Cliente RI de prueba",
+    "clienteCuit": "20222222223",
+    "condicionIva": "responsable_inscripto",
+    "estado": "completo",
+    "fechaAlta": "2026-08-15T15:44:39.795Z",
+    "fechaCompletado": "2026-08-15T15:44:56.263Z"
+  },
+  {
+    "nombre": "Cliente Exento de prueba",
+    "clienteCuit": "20333333334",
+    "condicionIva": "exento",
+    "estado": "completo",
+    "fechaAlta": "2026-08-15T16:05:32.891Z",
+    "fechaCompletado": "2026-08-15T16:06:06.594Z"
+  }
+]
