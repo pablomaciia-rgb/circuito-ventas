@@ -161,15 +161,21 @@ function filaAObjeto(encabezados, fila) {
 }
 
 /** Identificador único y estable de una fila, para no facturarla dos
- * veces. Se arma solo con cliente + producto + cantidad — no con la
- * fila cruda completa — para que agregar una columna nueva a la
- * planilla (como "email") no le cambie la huella a las filas ya
- * procesadas y las vuelva a facturar por error. Si alguien edita el
- * cliente, el producto o la cantidad de una fila ya procesada, sí se
- * trata como "nueva" a propósito (mejor facturar de más en
- * homologación que perderse un cambio real). */
-function idDeFila(cliente, producto, cantidad) {
-  return [cliente, producto, cantidad].join("|");
+ * veces. Se arma a partir de su POSICIÓN real en la hoja (filaSheet),
+ * no de su contenido — así, un mismo cliente pidiendo el mismo
+ * producto y cantidad dos veces (en dos filas distintas, en dos
+ * momentos distintos) se factura las dos veces, como corresponde a
+ * dos ventas reales. Agregar una columna nueva (como "email") tampoco
+ * le cambia la huella a las filas ya procesadas, porque no depende
+ * del contenido.
+ *
+ * Contraparte: esto asume que las filas solo se AGREGAN al final —
+ * insertar o borrar una fila en el medio corre los números de fila de
+ * todo lo que está debajo, y ahí sí se podrían reprocesar filas viejas
+ * o saltear una nueva por error. Mientras se cargue siempre agregando
+ * filas nuevas abajo (el uso normal de esta planilla), no hay problema. */
+function idDeFila(filaSheet) {
+  return `fila${filaSheet}`;
 }
 
 function cargarProcesadas(cuit) {
@@ -290,6 +296,7 @@ async function unaPasada(cuit, url, spreadsheetId, gid) {
   const colFacturado = encabezados.findIndex((h) => h.trim().toLowerCase() === "facturado");
   const colCae = encabezados.findIndex((h) => h.trim().toLowerCase() === "cae");
   const colTotal = encabezados.findIndex((h) => h.trim().toLowerCase() === "total");
+  const colComprobante = encabezados.findIndex((h) => h.trim().toLowerCase() === "comprobante");
 
   if (colProducto === -1) {
     error('La planilla necesita una columna "producto" en la primera fila. Encabezados encontrados: ' + encabezados.join(", "));
@@ -321,7 +328,7 @@ async function unaPasada(cuit, url, spreadsheetId, gid) {
     const cantidad = colCantidad !== -1 ? fila[colCantidad] || "1" : "1";
     const email = colEmail !== -1 ? (fila[colEmail] || "").trim() : "";
 
-    const id = idDeFila(cliente, producto, cantidad);
+    const id = idDeFila(filaSheet);
     if (yaProcesadas.has(id)) continue;
 
     nuevas++;
@@ -350,7 +357,10 @@ async function unaPasada(cuit, url, spreadsheetId, gid) {
       const caeMatch = resultado.salida.match(/CAE:\s*(\d+)/);
       const cae = ultimaFactura ? ultimaFactura.cae : caeMatch ? caeMatch[1] : null;
       const total = ultimaFactura ? ultimaFactura.total : null;
-      ok(`  Facturado — ${cae ? "CAE " + cae : "ver detalle abajo"}`);
+      const comprobante = ultimaFactura
+        ? `${String(ultimaFactura.ptoVta).padStart(4, "0")}-${String(ultimaFactura.nroComprobante).padStart(8, "0")}`
+        : null;
+      ok(`  Facturado — ${cae ? "CAE " + cae : "ver detalle abajo"}${comprobante ? ` (comprobante ${comprobante})` : ""}`);
 
       const entradaRegistro = {
         fecha: new Date().toISOString(),
@@ -359,6 +369,7 @@ async function unaPasada(cuit, url, spreadsheetId, gid) {
         cantidad,
         resultado: "facturado",
         cae,
+        comprobante,
         clientePendiente: datosCliente.estado !== "completo",
       };
 
@@ -366,9 +377,10 @@ async function unaPasada(cuit, url, spreadsheetId, gid) {
         const valoresPorColumna = { [colFacturado]: "Sí" };
         if (colCae !== -1 && cae) valoresPorColumna[colCae] = cae;
         if (colTotal !== -1 && total !== null) valoresPorColumna[colTotal] = total;
+        if (colComprobante !== -1 && comprobante) valoresPorColumna[colComprobante] = comprobante;
         try {
           await escribirFila(spreadsheetId, tituloHoja, filaSheet, valoresPorColumna);
-          log("  Planilla actualizada (facturado/cae/total).");
+          log("  Planilla actualizada (facturado/cae/total/comprobante).");
         } catch (e) {
           console.error(`  ✗ Se facturó bien pero no pude escribir el estado en la planilla: ${e.message}`);
         }
