@@ -11,7 +11,16 @@
     "Cliente de prueba|Circuito de cobranzas|2|pablomaciia@gmail.com",
     "Cliente de prueba|Circuito de cobranzas|2",
     "Cliente de prueba|Silla de madera|5",
-    "Cliente de prueba|Circuito de cobranzas|10"
+    "Cliente de prueba|Circuito de cobranzas|10",
+    "fila2",
+    "fila3",
+    "fila4",
+    "fila5",
+    "fila6",
+    "fila7",
+    "fila8",
+    "fila9",
+    "fila10"
   ],
   "registro": [
     {
@@ -125,6 +134,99 @@
       "cantidad": "10",
       "resultado": "facturado",
       "cae": "86330766058192",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-16T03:17:16.051Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "1",
+      "resultado": "error",
+      "detalle": "Consultando último comprobante autorizado (PtoVta 1, tipo 11)...\n✗ No se pudo conectar con ARCA: Timeout — no hubo respuesta de ARCA en 15 segundos. Revisá tu conexión a internet.\n  Este script necesita internet real — no funciona en un sandbox sin salida a la web.\n"
+    },
+    {
+      "fecha": "2026-08-16T03:17:36.080Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "2",
+      "resultado": "error",
+      "detalle": "Consultando último comprobante autorizado (PtoVta 1, tipo 11)...\n✓ Último autorizado: 11. Este comprobante será el N° 12.\nArmando factura: 2 x \"Silla de madera\" — total $90000.00 (CUIT 20111111112 (monotributo))...\nSolicitando CAE a ARCA...\n✗ No se pudo conectar con ARCA: Timeout — no hubo respuesta de ARCA en 15 segundos. Revisá tu conexión a internet.\n"
+    },
+    {
+      "fecha": "2026-08-16T03:17:50.050Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "3",
+      "resultado": "facturado",
+      "cae": "86330766150002",
+      "comprobante": "0001-00000012",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-16T03:17:55.625Z",
+      "cliente": "Cliente RI de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "1",
+      "resultado": "facturado",
+      "cae": "86330766150175",
+      "comprobante": "0001-00000013",
+      "clientePendiente": false,
+      "envioMail": "sin_email"
+    },
+    {
+      "fecha": "2026-08-16T03:17:56.980Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "2",
+      "resultado": "facturado",
+      "cae": "86330766150219",
+      "comprobante": "0001-00000014",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-16T03:18:01.140Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "5",
+      "resultado": "facturado",
+      "cae": "86330766150293",
+      "comprobante": "0001-00000015",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-16T03:18:05.684Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "2",
+      "resultado": "facturado",
+      "cae": "86330766150379",
+      "comprobante": "0001-00000016",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-16T03:18:10.193Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "10",
+      "resultado": "facturado",
+      "cae": "86330766150455",
+      "comprobante": "0001-00000017",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-16T03:18:13.578Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Silla de madera",
+      "cantidad": "3",
+      "resultado": "facturado",
+      "cae": "86330766150515",
+      "comprobante": "0001-00000018",
       "clientePendiente": false,
       "envioMail": "exitoso"
     }
