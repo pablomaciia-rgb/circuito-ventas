@@ -10,7 +10,8 @@
     "Cliente RI de prueba|Circuito de cobranzas|1|",
     "Cliente de prueba|Circuito de cobranzas|2|pablomaciia@gmail.com",
     "Cliente de prueba|Circuito de cobranzas|2",
-    "Cliente de prueba|Silla de madera|5"
+    "Cliente de prueba|Silla de madera|5",
+    "Cliente de prueba|Circuito de cobranzas|10"
   ],
   "registro": [
     {
@@ -114,6 +115,16 @@
       "cantidad": "5",
       "resultado": "facturado",
       "cae": "86330765894823",
+      "clientePendiente": false,
+      "envioMail": "exitoso"
+    },
+    {
+      "fecha": "2026-08-16T01:08:35.219Z",
+      "cliente": "Cliente de prueba",
+      "producto": "Circuito de cobranzas",
+      "cantidad": "10",
+      "resultado": "facturado",
+      "cae": "86330766058192",
       "clientePendiente": false,
       "envioMail": "exitoso"
     }
